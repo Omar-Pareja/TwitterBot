@@ -9,9 +9,6 @@ import static org.junit.jupiter.api.Assertions.*;
 /** Tests for LineIterator */
 public class LineIteratorTest {
 
-    /*
-     * Here's a test to help you out, but you still need to write your own.
-     */
 
     @Test
     public void testHasNextAndNext() {
@@ -30,9 +27,6 @@ public class LineIteratorTest {
         assertEquals("1, This comes from data with no duplicate words!", li.next());
         assertFalse(li.hasNext());
     }
-
-    /* **** ****** **** WRITE YOUR TESTS BELOW THIS LINE **** ****** **** */
-
 
     @Test
     public void testSingleLineInput() {
