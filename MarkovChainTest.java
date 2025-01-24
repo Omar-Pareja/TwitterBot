@@ -9,46 +9,14 @@ import static org.junit.jupiter.api.Assertions.*;
 /** Tests for MarkovChain */
 public class MarkovChainTest {
 
-    /*
-     * Writing tests for Markov Chain can be a little tricky.
-     * We provide a few tests below to help you out, but you still need
-     * to write your own.
-     */
-
-    /**
-     * Helper function to make it easier to create singleton sets of Strings;
-     * use this function in your tests as needed.
-     *
-     * @param s - the String to add to the set
-     * @return - a Set containing just s
-     */
+   
     private static Set<String> singleton(String s) {
         Set<String> set = new TreeSet<>();
         set.add(s);
         return set;
     }
 
-    /* **** ****** ***** ***** EXAMPLE TWEETS ***** ***** ****** **** */
-
-    /*
-     * Test your MarkovChain implementation!
-     * Run this test case and check the printed results to see whether
-     * your MarkovChain training agrees with the output below.
-     *
-     * ILLUSTRATIVE EXAMPLE MARKOV CHAIN:
-     * startTokens: { "a":2 }
-     * bigramFrequencies:
-     * "!": { "and":1 }
-     * "?": { "<END>":1 }
-     * "a": { "banana":2 "chair":1 "table":1 }
-     * "and": { "a":2 }
-     * "banana": { "!":1 "?":1 }
-     * "chair": { "<END>":1 }
-     * "table": { "and":1 }
-     *
-     * We have started this test case for you. Add additional code to the test case
-     * to completely characterize the state of the MarkovChain.
-     */
+    
     @Test
     public void testIllustrativeExampleMarkovChain() {
         /*
@@ -105,7 +73,6 @@ public class MarkovChainTest {
         assertEquals(1, pdTable.count("and"));
     }
 
-    /* **** ****** **** **** ADD BIGRAMS TESTS **** **** ****** **** */
     @Test
     public void testAddBigramWithMultipleOccurrences() {
 
@@ -137,7 +104,6 @@ public class MarkovChainTest {
         assertEquals(1, pd.count("end"));
     }
 
-    /* Here's an example test case. Be sure to add your own as well */
     @Test
     public void testAddBigram() {
         MarkovChain mc = new MarkovChain();
@@ -147,8 +113,6 @@ public class MarkovChainTest {
         assertTrue(pd.getRecords().containsKey("2"));
         assertEquals(1, pd.count("2"));
     }
-
-    /* ***** ****** ***** ***** ADD SEQUENCE TESTS ***** ***** ****** ***** */
 
     @Test
     public void testEmptyInput() {
@@ -248,24 +212,9 @@ public class MarkovChainTest {
         assertEquals(1, pd3.count(MarkovChain.END_TOKEN));
     }
 
-    /* **** ****** ****** MARKOV CHAIN CLASS TESTS ***** ****** ***** */
-
-    /*
-     * Here's an example test case for walking through the Markov Chain.
-     * Be sure to add your own as well
-     */
+    
     @Test
     public void testWalk() {
-        /*
-         * Using the training data "CIS 1200 rocks" and "CIS 1200 beats CIS 1600",
-         * we're going to put some bigrams into the Markov Chain.
-         *
-         * The given sequence of numbers acts as a path through the Markov Model
-         * that should be followed by {@code walk}. Note that the sequence
-         * includes a choice for {@code END_TOKEN}, so the length is one longer
-         * than the {@code expectedTokens}.
-         *
-         */
 
         String[] expectedTokens = { "CIS", "1200", "beats", "CIS", "1200", "rocks" };
         MarkovChain mc = new MarkovChain();
